@@ -1,0 +1,57 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.calculadora {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e4a9a9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #c24b4b;
+
+}
+.pantalla {
+  font-size: 2em; /* Aumenta el tamaño de la fuente */
+  padding: 20px; /* Añade padding para hacer la pantalla más grande */
+  border: 1px solid #ccc; /* Añade un borde */
+  border-radius: 5px; /* Bordes redondeados */
+  width: 100%; /* Asegura que la pantalla ocupe todo el ancho del contenedor */
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+  text-align: right; /* Alinea el texto a la derecha */
+  background-color: #7d7979; /* Fondo claro */
+}
+
+.botones-numeros,
+.botones-operaciones {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.boton {
+  height: 60px;
+  font-size: 24px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.boton.operacion {
+  background-color: #c800f0;
+}
+
+.boton:hover {
+  background-color: #ccc;
+}
