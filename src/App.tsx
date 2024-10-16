@@ -19,6 +19,7 @@ const App: React.FC = () => {
     } else if (valor === '=') {
       try {
         const entradaEvaluable = entrada.replace(/x/g, '*');
+
         setResultado(eval(entradaEvaluable)); // Eval debe manejarse con precaución.
       } catch {
         setResultado(NaN);
