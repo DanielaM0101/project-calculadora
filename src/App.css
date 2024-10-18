@@ -1,80 +1,124 @@
-body, html {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #E5D9F2;
-  font-family: Arial, sans-serif;
-}
+/* App.css */  
 
-.calculadora {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 5px solid #3a3a3a;
-  padding: 90px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  background-image: url(https://img.freepik.com/foto-gratis/fondo-colorido-borroso-vivo_58702-2655.jpg)
-  
-}
+/* Estilos generales */  
+body {  
+  margin: 0;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  height: 100vh;  
+  background-color: #ffffff; /* Fondo blanco */  
+  font-family: 'Inter', sans-serif;  
+}  
 
+.container {  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  width: 100%; /* Ocupa el ancho completo */  
+  padding: 20px; /* Amortiguación interna */  
+}  
 
+.calculadora {  
+  background-color: #f0f0f0; /* Fondo gris para la calculadora */  
+  padding: 20px;  
+  border-radius: 15px;  
+  display: inline-block;  
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);  
+}  
 
-.pantalla {
-  font-size: 2em;
-  padding: 15px;
-  border: 2px solid #34495e;
-  border-radius: 10px;
-  width: 100%;
-  box-sizing: border-box;
-  text-align: right;
-  background-color: #ecf0f1;
-  color: #2c3e50;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
-}
+h1 {  
+  color: #a162bb; /* Color del título "Calculadora" */  
+  font-size: 2.5em;  
+  text-align: left;  
+  margin-bottom: 20px;  
+}  
 
-.botones-numeros,
-.botones-operaciones {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  width: 100%;
-}
+.pantalla {  
+  background-color: #a162bb; /* Fondo de la pantalla */  
+  color: #fff;  
+  font-size: 1.8em; /* Tamaño del texto en la pantalla */  
+  text-align: right;  
+  padding: 15px;  
+  border-radius: 10px;  
+  margin-bottom: 20px;  
+}  
 
-.boton {
-  height: 65px;
-  font-size: 24px;
-  border: 3px solid  #34495e ;
-  background-color: #90d6fb;
-  color: #201f23;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.5s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
-}
+.button-container {  
+  background-color: #d0d0d0; /* Fondo gris claro para los botones */  
+  padding: 15px;  
+  border-radius: 10px;  
+}  
 
+.botones-numeros,  
+.botones-operaciones {  
+  display: grid;  
+  grid-template-columns: repeat(4, 1fr);  
+  gap: 10px;  
+}  
 
+button {  
+  background-color: #a162bb; /* Color de los botones morados */  
+  border: none;  
+  border-radius: 50%; /* Forma redonda */  
+  color: white;  
+  font-size: 1.5em;  
+  padding: 20px;  
+  cursor: pointer;  
+  transition: background-color 0.3s ease;  
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4); /* Sombra en los botones */  
+}  
 
-.boton.operacion {
-  background-color: #D37676;
-  
-  
-  
+button:hover {  
+  background-color: #9c59b6; /* Color más oscuro al pasar por encima */  
+}  
 
-}
+button:active {  
+  background-color: #7f4791; /* Color cuando se hace clic */  
+}  
 
+button.operation {  
+  background-color: #a162bb; /* Botones de operación con color morado */  
+}  
 
+button.operation:hover {  
+  background-color: #9c59b6;  
+}  
 
-.name{
-  color: #111010ee;
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  text-align: center;
-  
+button.clear {  
+  background-color: #e84a4a; /* Botón de "C" en rojo */  
+  color: #fff;  
+}  
+
+button.clear:hover {  
+  background-color: #d63f3f;  
+}  
+
+button.equal {  
+  background-color: #4a4a82; /* Botón "=" en azul oscuro */  
+}  
+
+button.equal:hover {  
+  background-color: #3e3e71;  
+}  
+
+button.special {  
+  background-color: #a162bb; /* Botones especiales como %, tan, log, etc. */  
+  font-size: 1.2em;  
+}  
+
+button.special:hover {  
+  background-color: #9c59b6;  
+}  
+
+/* Ajustes para dispositivos móviles */  
+@media (max-width: 600px) {  
+  .pantalla {  
+    font-size: 1.5em;  
+  }  
+
+  button {  
+    padding: 15px;  
+    font-size: 1.2em;  
+  }  
 }
