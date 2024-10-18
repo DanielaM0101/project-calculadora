@@ -30,30 +30,36 @@ body {
 h1 {  
   color: #a162bb; /* Color del título "Calculadora" */  
   font-size: 2.5em;  
-  text-align: left;  
+  text-align: center;  
   margin-bottom: 20px;  
 }  
 
 .pantalla {  
   background-color: #a162bb; /* Fondo de la pantalla */  
   color: #fff;  
-  font-size: 1.8em; /* Tamaño del texto en la pantalla */  
+  font-size: 2em; /* Tamaño del texto en la pantalla */  
   text-align: right;  
   padding: 15px;  
   border-radius: 10px;  
   margin-bottom: 20px;  
+  min-height: 50px; /* Asegura un tamaño mínimo para la pantalla */  
 }  
 
 .button-container {  
-  background-color: #d0d0d0; /* Fondo gris claro para los botones */  
-  padding: 15px;  
-  border-radius: 10px;  
+  display: flex;  
+  flex-direction: column; /* Coloca botones en columnas */  
 }  
 
-.botones-numeros,  
+.botones-numeros {  
+  display: grid;  
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas para los números */  
+  gap: 10px;  
+  margin-bottom: 10px; /* Separación entre números y operaciones */  
+}  
+
 .botones-operaciones {  
   display: grid;  
-  grid-template-columns: repeat(4, 1fr);  
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas para las operaciones */  
   gap: 10px;  
 }  
 
@@ -62,7 +68,7 @@ button {
   border: none;  
   border-radius: 50%; /* Forma redonda */  
   color: white;  
-  font-size: 1.5em;  
+  font-size: 1.8em; /* Tamaño del texto en los botones */  
   padding: 20px;  
   cursor: pointer;  
   transition: background-color 0.3s ease;  
@@ -77,17 +83,10 @@ button:active {
   background-color: #7f4791; /* Color cuando se hace clic */  
 }  
 
-button.operation {  
-  background-color: #a162bb; /* Botones de operación con color morado */  
-}  
-
-button.operation:hover {  
-  background-color: #9c59b6;  
-}  
-
 button.clear {  
   background-color: #e84a4a; /* Botón de "C" en rojo */  
   color: #fff;  
+  grid-column: span 2; /* Ocupa ambas columnas */  
 }  
 
 button.clear:hover {  
@@ -96,19 +95,11 @@ button.clear:hover {
 
 button.equal {  
   background-color: #4a4a82; /* Botón "=" en azul oscuro */  
+  grid-column: span 2; /* Ocupa ambas columnas */  
 }  
 
 button.equal:hover {  
   background-color: #3e3e71;  
-}  
-
-button.special {  
-  background-color: #a162bb; /* Botones especiales como %, tan, log, etc. */  
-  font-size: 1.2em;  
-}  
-
-button.special:hover {  
-  background-color: #9c59b6;  
 }  
 
 /* Ajustes para dispositivos móviles */  
