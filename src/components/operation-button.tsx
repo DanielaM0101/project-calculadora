@@ -1,4 +1,4 @@
-// src/components/BotonOperacion.tsx
+
 import React from 'react';
 
 interface BotonOperacionProps {

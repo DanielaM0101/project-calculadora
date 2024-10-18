@@ -1,4 +1,4 @@
-// src/components/BotonNumerico.tsx
+
 import React from 'react';
 
 interface BotonNumericoProps {

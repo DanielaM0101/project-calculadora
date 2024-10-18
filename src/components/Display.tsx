@@ -1,4 +1,4 @@
-// src/components/Pantalla.tsx
+
 import React from 'react';
 
 interface PantallaProps {

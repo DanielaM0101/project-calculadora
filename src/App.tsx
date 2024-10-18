@@ -1,4 +1,4 @@
-// src/App.tsx
+
 import React, { useState } from 'react';
 import Display from './components/Display';
 import NumberButton from './components/number-button';
