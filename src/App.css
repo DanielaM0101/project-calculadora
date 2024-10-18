@@ -49,13 +49,14 @@ body, html {
 .boton {
   height: 65px;
   font-size: 24px;
-  border: none;
+  border: 3px solid  #34495e ;
   background-color: #90d6fb;
   color: #201f23;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.5s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
 }
 
 
@@ -63,7 +64,11 @@ body, html {
 .boton.operacion {
   background-color: #D37676;
   
+  
+  
+
 }
+
 
 
 .name{
