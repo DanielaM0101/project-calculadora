@@ -4,7 +4,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #bccbdd;
+  background-color: #E5D9F2;
   font-family: Arial, sans-serif;
 }
 
@@ -13,11 +13,11 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #3a3a3a;
-  padding: 25px;
+  border: 5px solid #3a3a3a;
+  padding: 90px;
   border-radius: 15px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  background-image: url(https://tse2.mm.bing.net/th?id=OIG2.E49XRDChQFnxRE6ULXx.&pid=ImgGn)
+  background-image: url(https://img.freepik.com/foto-gratis/fondo-colorido-borroso-vivo_58702-2655.jpg)
   
 }
 
@@ -58,21 +58,13 @@ body, html {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.boton:hover {
-  background-color: #2980b9;
-  transform: translateY(-4px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
 
 
 .boton.operacion {
-  background-color: #e74c3c;
+  background-color: #D37676;
+  
 }
 
-.boton.operacion:hover {
-  background-color: #c0392b;
-}
 
 .name{
   color: #111010ee;
