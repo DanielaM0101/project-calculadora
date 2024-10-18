@@ -31,6 +31,10 @@ const App: React.FC = () => {
 
   return (
     <div className="calculadora">
+      <h1 className = "name">CALCULADORA
+
+      </h1>
+
       <Display valor={resultado !== null ? resultado : entrada} />
       <div className="botones-numeros">
         {numeros.map((num) => (
