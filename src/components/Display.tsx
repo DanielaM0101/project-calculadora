@@ -1,12 +1,12 @@
 
 import React from 'react';
 
-interface PantallaProps {
-  valor: string | number;
+interface ScreenProps {
+  value: string | number;
 }
 
-const Display: React.FC<PantallaProps> = ({ valor }) => {
-  return <div className="pantalla">{valor}</div>;
+const Display: React.FC<ScreenProps> = ({ value }) => {
+  return <div className="pantalla">{value}</div>;
 };
 
 export default Display;

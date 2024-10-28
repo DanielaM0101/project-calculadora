@@ -1,13 +1,11 @@
-/* App.css */  
 
-/* Estilos generales */  
 body {  
   margin: 0;  
   display: flex;  
   justify-content: center;  
   align-items: center;  
   height: 100vh;  
-  background-color: #ffffff; /* Fondo blanco */  
+  background-color: #ffffff;
   font-family: 'Inter', sans-serif;  
 }  
 
@@ -15,12 +13,12 @@ body {
   display: flex;  
   justify-content: center;  
   align-items: center;  
-  width: 100%; /* Ocupa el ancho completo */  
-  padding: 20px; /* Amortiguación interna */  
+  width: 100%;   
+  padding: 20px;   
 }  
 
 .calculadora {  
-  background-color: #f0f0f0; /* Fondo gris para la calculadora */  
+  background-color: #f0f0f0;   
   padding: 20px;  
   border-radius: 15px;  
   display: inline-block;  
@@ -28,65 +26,65 @@ body {
 }  
 
 h1 {  
-  color: #a162bb; /* Color del título "Calculadora" */  
+  color: #a162bb;   
   font-size: 2.5em;  
   text-align: center;  
   margin-bottom: 20px;  
 }  
 
 .pantalla {  
-  background-color: #a162bb; /* Fondo de la pantalla */  
+  background-color: #a162bb;   
   color: #fff;  
-  font-size: 2em; /* Tamaño del texto en la pantalla */  
+  font-size: 2em;   
   text-align: right;  
   padding: 15px;  
   border-radius: 10px;  
   margin-bottom: 20px;  
-  min-height: 50px; /* Asegura un tamaño mínimo para la pantalla */  
+  min-height: 50px; / 
 }  
 
 .button-container {  
   display: flex;  
-  flex-direction: column; /* Coloca botones en columnas */  
+  flex-direction: column;   
 }  
 
 .botones-numeros {  
   display: grid;  
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas para los números */  
+  grid-template-columns: repeat(3, 1fr);  
   gap: 10px;  
-  margin-bottom: 10px; /* Separación entre números y operaciones */  
+  margin-bottom: 10px;   
 }  
 
 .botones-operaciones {  
   display: grid;  
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas para las operaciones */  
+  grid-template-columns: repeat(2, 1fr);  
   gap: 10px;  
 }  
 
 button {  
-  background-color: #a162bb; /* Color de los botones morados */  
+  background-color: #a162bb;   
   border: none;  
-  border-radius: 50%; /* Forma redonda */  
+  border-radius: 50%; 
   color: white;  
-  font-size: 1.8em; /* Tamaño del texto en los botones */  
+  font-size: 1.8em;   
   padding: 20px;  
   cursor: pointer;  
   transition: background-color 0.3s ease;  
-  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4); /* Sombra en los botones */  
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4);
 }  
 
 button:hover {  
-  background-color: #9c59b6; /* Color más oscuro al pasar por encima */  
+  background-color: #9c59b6; 
 }  
 
 button:active {  
-  background-color: #7f4791; /* Color cuando se hace clic */  
+  background-color: #7f4791;   
 }  
 
 button.clear {  
-  background-color: #e84a4a; /* Botón de "C" en rojo */  
+  background-color: #e84a4a;  
   color: #fff;  
-  grid-column: span 2; /* Ocupa ambas columnas */  
+  grid-column: span 2;   
 }  
 
 button.clear:hover {  
@@ -94,15 +92,15 @@ button.clear:hover {
 }  
 
 button.equal {  
-  background-color: #4a4a82; /* Botón "=" en azul oscuro */  
-  grid-column: span 2; /* Ocupa ambas columnas */  
+  background-color: #4a4a82;   
+  grid-column: span 2;   
 }  
 
 button.equal:hover {  
   background-color: #3e3e71;  
 }  
 
-/* Ajustes para dispositivos móviles */  
+  
 @media (max-width: 600px) {  
   .pantalla {  
     font-size: 1.5em;  

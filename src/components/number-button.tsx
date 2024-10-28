@@ -1,16 +1,16 @@
 
 import React from 'react';
 
-interface BotonNumericoProps {
-  numero: string;
-  manejarClick: (valor: string) => void;
+interface ButtonNumericProps {
+  number: string;
+  handleClick: (valor: string) => void;
 }
 
 
-const NumberButton: React.FC<BotonNumericoProps> = ({ numero, manejarClick }) => {
+const NumberButton: React.FC<ButtonNumericProps> = ({ number, handleClick }) => {
   return (
-    <button className="boton" onClick={() => manejarClick(numero)}>
-      {numero}
+    <button className="boton" onClick={() => handleClick(number)}>
+      {number}
     </button>
   );
 };
