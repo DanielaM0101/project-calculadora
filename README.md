@@ -630,3 +630,183 @@ const useCalculadora = () => {
 
 **Código de Implementación:**
 ```typescript
+// Componente de botón numérico
+const NumberButton: React.FC<NumberButtonProps> = ({ number, handleClick }) => {
+  return (
+    <button onClick={() => handleClick(number)}>
+      {number}
+    </button>
+  );
+};
+
+// Componente de botón de operación
+const OperationButton: React.FC<OperationButtonProps> = ({ operation, handleClick }) => {
+  return (
+    <button onClick={() => handleClick(operation)}>
+      {operation}
+    </button>
+  );
+};
+```
+**Explicación**:
+
+¿Qué hace?: Define dos componentes funcionales en React para representar botones numéricos y de operaciones en una calculadora.
+
+**¿Cómo funciona?**: NumberButton: Recibe un número y una función de manejo de clics como props. Cuando se hace clic en el botón, llama a la función de manejo de clics con el número correspondiente.
+OperationButton: Recibe una operación y una función de manejo de clics como props. Cuando se hace clic en el botón, llama a la función de manejo de clics con la operación correspondiente.
+
+**¿Por qué es la mejor implementación?**:
+
+Mejora la modularidad: Cada botón es un componente independiente.
+Facilita el mantenimiento: Los componentes son reutilizables y fáciles de modificar.
+Hace el código más legible y predecible: La lógica de cada botón está claramente definida en su propio componente.
+
+### 11) **Gestionar el estado**: Mantener el estado de los números ingresados, la operación actual y el resultado final.
+
+```typescript
+const App: React.FC = () => {
+  const [entrada, setEntrada] = useState<string>('');
+  const [resultado, setResultado] = useState<string | null>(null);
+```
+**Explicación:**
+
+**¿Qué hace?**: Define el componente principal de la aplicación de calculadora en React.
+
+**¿Cómo funciona?**: Utiliza el hook useState para almacenar el estado de la calculadora, incluyendo la entrada del usuario y el resultado de la operación.
+
+**¿Por qué es la mejor implementación?**:
+
+Mejora la modularidad: El estado de la calculadora se gestiona dentro del componente principal.
+Facilita el mantenimiento: El estado y la lógica de la calculadora están centralizados en un solo lugar.
+Hace el código más legible y predecible: La gestión del estado es clara y fácil de seguir.
+
+### 12) **Actualizar el estado**: Actualizar el estado de los números y el resultado en tiempo real a medida que el usuario interactúa con la calculadora.
+
+ ```typescript
+ const manejarClick = (valor: string) => {
+  switch(valor) {
+    case '=':
+      try {
+        const evaluado = eval(entrada.replace('x', '*')).toString();
+        setResultado(evaluado);
+      } catch {
+        setResultado('Error');
+      }
+      break;
+    case 'C':
+      setEntrada('');
+      setResultado(null);
+      break;
+    default:
+      setEntrada(prevEntrada => prevEntrada + valor);
+  }
+};
+ ```
+
+**Explicación:**
+
+**¿Qué hace?**: Define una función manejarClick que maneja los eventos de clic en los botones de la calculadora.
+
+**¿Cómo funciona?**:
+
+Recibe un valor como argumento y utiliza una estructura switch para determinar la acción a realizar.
+Si el valor es '=', intenta evaluar la expresión matemática en la entrada y actualizar el resultado. Si ocurre un error, establece el resultado como 'Error'.
+Si el valor es 'C', limpia la entrada y el resultado.
+Para cualquier otro valor, lo añade a la entrada actual.
+
+**¿Por qué es la mejor implementación?**:
+
+Mejora la modularidad: La lógica de manejo de clics está encapsulada en una función.
+Facilita el mantenimiento: Las acciones específicas están claramente definidas y son fáciles de modificar.
+Hace el código más legible y predecible: La estructura switch organiza las diferentes acciones de manera clara.
+
+ ### 13) **Sincronizar con efectos (opcional)**: Si deseas, podrías usar useEffect para manejar algún comportamiento extra, como un historial de cálculos.
+
+```typescript
+ import { useState, useEffect } from 'react';
+
+const App: React.FC = () => {
+  const [entrada, setEntrada] = useState<string>('');
+  const [resultado, setResultado] = useState<string | null>(null);
+  const [historial, setHistorial] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (resultado !== null) {
+      setHistorial(prevHistorial => [...prevHistorial, `${entrada} = ${resultado}`]);
+    }
+  }, [resultado]);
+
+  const manejarClick = (valor: string) => {
+    switch(valor) {
+      case '=':
+        try {
+          const evaluado = eval(entrada.replace('x', '*')).toString();
+          setResultado(evaluado);
+        } catch {
+          setResultado('Error');
+        }
+        break;
+      case 'C':
+        setEntrada('');
+        setResultado(null);
+        break;
+      default:
+        setEntrada(prevEntrada => prevEntrada + valor);
+    }
+  };
+
+  return (
+    <div className="calculadora">
+      <div className="pantalla">
+        {resultado !== null ? resultado : entrada || '0'}
+      </div>
+      <div className="botones-numeros">
+        {numeros.map((num) => (
+          <NumberButton 
+            key={num} 
+            number={num} 
+            handleClick={manejarClick} 
+          />
+        ))}
+      </div>
+      <div className="botones-operaciones">
+        {operaciones.map((op) => (
+          <OperationButton
+            key={op}
+            operation={op}
+            handleClick={manejarClick}
+          />
+        ))}
+      </div>
+      <div className="historial">
+        <h2>Historial</h2>
+        <ul>
+          {historial.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+```
+
+**Explicación**:
+
+¿Qué hace?: Define el componente principal de una aplicación de calculadora en React, gestionando el estado de la entrada, el resultado y el historial de operaciones.
+
+**¿Cómo funciona?**:
+
+Utiliza el hook useState para almacenar el estado de la entrada del usuario, el resultado de la operación y el historial de cálculos.
+Utiliza el hook useEffect para actualizar el historial cada vez que se obtiene un nuevo resultado.
+Define una función manejarClick que maneja los eventos de clic en los botones de la calculadora:
+Si el valor es '=', intenta evaluar la expresión matemática en la entrada y actualizar el resultado. Si ocurre un error, establece el resultado como 'Error'.
+Si el valor es 'C', limpia la entrada y el resultado.
+Para cualquier otro valor, lo añade a la entrada actual.
+Renderiza la interfaz de usuario de la calculadora, incluyendo la pantalla, los botones numéricos, los botones de operaciones y el historial de cálculos.
+
+**¿Por qué es la mejor implementación?**:
+
+Mejora la modularidad: El estado y la lógica de la calculadora están centralizados en el componente principal.
+Facilita el mantenimiento: La gestión del estado y la lógica de la calculadora están claramente definidas y son fáciles de modificar.
+Hace el código más legible y predecible: La estructura del componente y la gestión del estado son claras y fáciles de seguir.
