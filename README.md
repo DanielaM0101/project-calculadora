@@ -514,3 +514,119 @@ const App: React.FC = () => {
 - Predecibilidad del estado
 - Facilita pruebas unitarias
 - Evita efectos secundarios no deseados
+
+### 9) **Entender la UI como Árboles**: Visualizar la calculadora como una estructura de árbol donde los botones y la pantalla están organizados jerárquicamente.
+
+**Código de Implementación:**
+```typescript
+const Calculadora: React.FC = () => {
+  return (
+    <div className="calculadora-contenedor">
+      {/* Raíz del árbol de UI */}
+      <PanelPrincipal>
+        {/* Ramas principales */}
+        <Pantalla />
+        <ContenedorBotones>
+          {/* Sub-ramas */}
+          <BotonesNumeros />
+          <BotonesOperaciones />
+        </ContenedorBotones>
+      </PanelPrincipal>
+    </div>
+  );
+};
+
+// Componentes que representan la estructura de árbol
+const PanelPrincipal: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div className="panel-principal">{children}</div>
+);
+
+const Pantalla: React.FC = () => {
+  const { entrada, resultado } = useCalculadora();
+  return (
+    <div className="pantalla">
+      {resultado !== null ? resultado : entrada || '0'}
+    </div>
+  );
+};
+
+const ContenedorBotones: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div className="contenedor-botones">{children}</div>
+);
+
+const BotonesNumeros: React.FC = () => {
+  const numeros = ['7', '8', '9', '4', '5', '6', '1', '2', '3', '0', '.'];
+  const { manejarClick } = useCalculadora();
+
+  return (
+    <div className="botones-numeros">
+      {numeros.map(numero => (
+        <BotonNumerico 
+          key={numero} 
+          valor={numero} 
+          onClick={() => manejarClick(numero)} 
+        />
+      ))}
+    </div>
+  );
+};
+
+const BotonesOperaciones: React.FC = () => {
+  const operaciones = ['C', '+', '-', 'x', '/', '='];
+  const { manejarClick } = useCalculadora();
+
+  return (
+    <div className="botones-operaciones">
+      {operaciones.map(operacion => (
+        <BotonOperacion 
+          key={operacion} 
+          valor={operacion} 
+          onClick={() => manejarClick(operacion)} 
+        />
+      ))}
+    </div>
+  );
+};
+
+// Hook personalizado para gestionar la lógica de la calculadora
+const useCalculadora = () => {
+  const [entrada, setEntrada] = useState<string>('');
+  const [resultado, setResultado] = useState<string | null>(null);
+
+  const manejarClick = (valor: string) => {
+    switch(valor) {
+      case '=':
+        try {
+          const calculo = eval(entrada.replace('x', '*')).toString();
+          setResultado(calculo);
+        } catch {
+          setResultado('Error');
+        }
+        break;
+      case 'C':
+        setEntrada('');
+        setResultado(null);
+        break;
+      default:
+        setEntrada(prev => prev + valor);
+    }
+  };
+
+  return { entrada, resultado, manejarClick };
+};
+```
+**Explicación**:
+
+**¿Qué hace?**: Representa la UI como una estructura de árbol jerárquica
+
+**¿Cómo funciona?**: Utiliza el hook `useState` para almacenar el estado de la calculadora, incluyendo la entrada del usuario y el resultado de la operación.
+
+**¿Por qué es la mejor implementación?**:
+- Mejora la modularidad
+- Facilita el mantenimiento
+- Hace el código más legible y predecible
+
+### 10) **Controlar eventos del usuario**: Capturar los clics en los botones numéricos y de operaciones.
+
+**Código de Implementación:**
+```typescript
