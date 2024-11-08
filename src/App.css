@@ -65,7 +65,7 @@ button {
   background-color: #a162bb;   
   border: none;  
   border-radius: 50%; 
-  color: white;  
+  color: rgb(2, 2, 2);  
   font-size: 1.8em;   
   padding: 20px;  
   cursor: pointer;  
